@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cebu Pacific Airlines — Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --active: #0072CE;
+      --inactive: #ccc;
+      --line: #e0e0e0;
+    }
+
+    
+    .progress-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 30px auto 0;
+      max-width: 700px;
+      position: relative;
+    }
+
+    .progress-container::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50px;
+      right: 50px;
+      height: 4px;
+      background-color: var(--line);
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+
+    .step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      flex: 1;
+    }
+
+    .circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--inactive);
+      color: white;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 6px;
+    }
+
+    .step.active .circle {
+      background-color: var(--active);
+    }
+
+    .step span {
+      font-size: 13px;
+      color: #555;
+    }
+
+    
+    .hero {
+      text-align: center;
+      margin-top: 40px;
+      background: #fff;
+      border-radius: 15px;
+      padding: 40px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero img {
+      width: 180px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      color: var(--blue);
+      font-size: 24px;
+      margin: 10px 0 6px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+
+    .hero .btn-primary {
+      font-size: 16px;
+      padding: 12px 24px;
+      border-radius: 10px;
+    }
+
+    body {
+      background: linear-gradient(
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.85)
+      ),
+      url("airplane.webp") center/cover no-repeat;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="logo">✈</div>
+      <div>
+        <h1>Cebu Pacific Airlines</h1>
+        <p>Let’s Fly Together!</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="progress-container">
+    <div class="step active">
+      <div class="circle">1</div>
+      <span>Home</span>
+    </div>
+    <div class="step">
+      <div class="circle">2</div>
+      <span>Booking</span>
+    </div>
+    <div class="step">
+      <div class="circle">3</div>
+      <span>Select Flight</span>
+    </div>
+    <div class="step">
+      <div class="circle">4</div>
+      <span>Passenger Info</span>
+    </div>
+    <div class="step">
+      <div class="circle">5</div>
+      <span>Summary</span>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="hero">
+      <img src="pacific.png" alt="Cebu Pacific Logo">
+      <h2>Welcome to Cebu Pacific Airlines</h2>
+      <p>Fly to your favorite destinations with affordable fares and flexible schedules.</p>
+      <p><strong>By Aaron Requiroso and Lyle Steve Canoy</strong></p>
+      <a href="booking.html" class="btn-primary">Book A Flight</a>
+    </section>
+  </main>
+</body>
+</html>

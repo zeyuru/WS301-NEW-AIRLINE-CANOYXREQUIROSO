@@ -1,0 +1,148 @@
+:root{
+  --yellow:#FFD200;
+  --blue:#0072CE;
+  --muted:#6b7280;
+  --bg:#f6f9fc;
+  --card:#fff;
+  --shadow:0 8px 20px rgba(2,6,23,0.06);
+  --radius:12px;
+  --maxw:1100px;
+  --accent-text:#052d5a;
+}
+
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--accent-text)}
+a{color:inherit;text-decoration:none}
+
+
+.header{
+  background:linear-gradient(90deg,var(--yellow),#ffd64a 40%,var(--blue));
+  padding:18px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 6px 14px rgba(0,0,0,0.06);
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:10px;background:#fff;color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:700}
+.brand h1{margin:0;font-size:18px}
+.brand p{margin:0;font-size:12px;color:rgba(5,45,90,0.9)}
+
+
+.container{max-width:var(--maxw);margin:28px auto;padding:0 18px}
+.card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border:1px solid rgba(2,6,23,0.03);margin-bottom:18px}
+
+
+.h2{font-size:18px;color:var(--blue);margin:0 0 12px;font-weight:700}
+.label-sub{height:4px;background:linear-gradient(90deg,var(--yellow),var(--blue));border-radius:2px;margin-bottom:12px}
+
+
+.form-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+label{display:block;font-weight:600;color:var(--muted);margin-bottom:6px}
+input,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8;background:#fff;color:var(--accent-text)}
+input[type="date"]{padding:9px}
+
+
+.btn-row{text-align:right;margin-top:12px}
+.btn-primary{background:var(--blue);color:#fff;padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+.btn-ghost{background:transparent;border:1px solid rgba(0,114,206,0.12);color:var(--blue);padding:8px 12px;border-radius:8px;cursor:pointer}
+
+
+.flights-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.flights-list{display:flex;flex-direction:column;gap:10px}
+.flight-card{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:10px;background:#fbfdff;border:1px solid rgba(2,6,23,0.03)}
+.flight-card .meta{color:var(--muted);font-size:13px}
+.flight-card:hover{box-shadow:0 6px 18px rgba(0,114,206,0.06)}
+.flight-card.selected{outline:3px solid rgba(255,210,0,0.18);border-color:var(--yellow)}
+
+.passenger-block{padding:12px;border-radius:8px;border:1px solid rgba(2,6,23,0.04);background:#fff}
+.pass-row{display:flex;gap:8px}
+.pass-row> *{flex:1}
+
+
+.message{margin-top:10px;color:#b42b2b;font-weight:700}
+.no-flights{padding:20px;border-radius:10px;background:#fff8f0;border:1px solid #ffdcb3;color:#7a3b00}
+
+
+.summary-block{background:#fbfdff;padding:12px;border-radius:8px;border:1px solid rgba(2,6,23,0.03)}
+.success{background:#e6ffea;padding:12px;border-radius:8px;border:1px solid #b7f3cd;color:#0a6b2f}
+
+
+.hidden{display:none}
+.small{font-size:13px;color:var(--muted)}
+.center{text-align:center}
+
+
+
+.flight-card {
+  display: grid;
+  grid-template-columns: 1.2fr 2.5fr auto;
+  align-items: center;
+  background: #fff;
+  border: 1px solid rgba(2,6,23,0.08);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 16px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.2s ease;
+}
+
+.flight-card:hover {
+  box-shadow: 0 6px 14px rgba(0, 114, 206, 0.15);
+  transform: translateY(-2px);
+}
+
+.flight-card .left {
+  font-weight: 700;
+  color: #003580;
+  font-size: 18px;
+}
+
+.flight-card .details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px 14px;
+  font-size: 14px;
+  color: #444;
+}
+
+.flight-card .details p {
+  margin: 0;
+}
+
+.flight-card .details b {
+  color: #003580;
+}
+
+.flight-card .action {
+  text-align: right;
+}
+
+.flight-card .btn-primary {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+header .home-link {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+}
+
+header .home-link:hover {
+  text-decoration: underline;
+}

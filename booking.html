@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cebu Pacific Airlines | Booking Details</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+  <style>
+    :root {
+      --active: #0072CE;
+      --inactive: #ccc;
+      --line: #e0e0e0;
+    }
+
+    .topbar {
+      background: linear-gradient(90deg, var(--yellow), #ffd64a 40%, var(--blue));
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .btn-home {
+      color: #052d5a;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .btn-home:hover {
+      text-decoration: underline;
+    }
+
+    
+    .progress-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 40px auto 30px;
+      max-width: 700px;
+      position: relative;
+    }
+
+    .progress-container::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 60px;
+      right: 60px;
+      height: 4px;
+      background-color: var(--line);
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+
+    .step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      flex: 1;
+    }
+
+    .circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--inactive);
+      color: white;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 6px;
+    }
+
+    .step.active .circle {
+      background-color: var(--active);
+    }
+
+    .step span {
+      font-size: 13px;
+      color: #555;
+    }
+
+    main.container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h2 {
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(2, 6, 23, 0.03);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">✈</div>
+      <div>
+        <h1>Cebu Pacific Airlines</h1>
+        <p>Book Your Flight</p>
+      </div>
+    </div>
+    <a href="home.html" class="btn-home">← Home</a>
+  </header>
+
+ 
+  <div class="progress-container">
+    <div class="step">
+      <div class="circle">1</div>
+      <span>Home</span>
+    </div>
+    <div class="step active">
+      <div class="circle">2</div>
+      <span>Booking</span>
+    </div>
+    <div class="step">
+      <div class="circle">3</div>
+      <span>Select Flight</span>
+    </div>
+    <div class="step">
+      <div class="circle">4</div>
+      <span>Passenger Info</span>
+    </div>
+    <div class="step">
+      <div class="circle">5</div>
+      <span>Summary</span>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="card">
+      <h2>1. Booking Details</h2>
+
+      <div class="form-grid">
+        <div>
+          <label>From</label>
+          <select id="from">
+            <option value="">Select Origin</option>
+            <option value="MNL">Manila (MNL)</option>
+            <option value="CEB">Cebu (CEB)</option>
+            <option value="DVO">Davao (DVO)</option>
+            <option value="ILO">Iloilo (ILO)</option>
+            <option value="BCD">Bacolod (BCD)</option>
+            <option value="KLO">Kalibo (KLO)</option>
+          </select>
+        </div>
+
+        <div>
+          <label>To</label>
+          <select id="to">
+            <option value="">Select Destination</option>
+            <option value="MNL">Manila (MNL)</option>
+            <option value="CEB">Cebu (CEB)</option>
+            <option value="DVO">Davao (DVO)</option>
+            <option value="ILO">Iloilo (ILO)</option>
+            <option value="BCD">Bacolod (BCD)</option>
+            <option value="KLO">Kalibo (KLO)</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Type of Flight</label>
+          <select id="flightType">
+            <option value="" disabled selected>Select Trip Type</option>
+            <option value="oneway">One Way</option>
+            <option value="round">Round Trip</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Depart Date</label>
+          <input type="date" id="departDate">
+        </div>
+
+        <div id="returnDiv">
+          <label>Return Date</label>
+          <input type="date" id="returnDate">
+        </div>
+
+        <div>
+          <label>Passengers</label>
+          <input type="number" id="passengers" min="1" max="9" value="1">
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button id="searchFlights" class="btn-primary">Search Flights</button>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
