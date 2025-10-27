@@ -282,43 +282,22 @@ function initSuccess() {
     return;
   }
 
-  
   const totalPassengers = passengers.length;
-  const applyDiscount = totalPassengers % 2 === 0;
-  const discountRate = 0.10; 
+  let totalPrice = flight.price * totalPassengers;
 
-  let totalPrice = 0;
-  let totalDiscount = 0;
-
-  
+  // Build passenger list (no discounts)
   let passengerHTML = "<ul>";
-  passengers.forEach((p, index) => {
-    const passengerNum = index + 1;
-    let passengerPrice = flight.price;
-    let discountApplied = false;
-
-    
-    if (applyDiscount && passengerNum % 2 === 0) {
-      const discountedPrice = passengerPrice * (1 - discountRate);
-      totalDiscount += passengerPrice - discountedPrice;
-      passengerPrice = discountedPrice;
-      discountApplied = true;
-    }
-
-    passengerHTML += `<li>
-      <b>${p.name}</b> — ${p.passport} (${p.nationality})<br>
-      ${discountApplied 
-        ? `<span style="color:#0072CE;">Discount Applied: ₱${(flight.price - passengerPrice).toLocaleString()}</span><br>
-           <b>Fare:</b> ₱${passengerPrice.toLocaleString()} 
-           <span style="text-decoration:line-through;color:#888;">₱${flight.price.toLocaleString()}</span>`
-        : `<b>Fare:</b> ₱${flight.price.toLocaleString()}` }
-    </li>`;
-
-    totalPrice += passengerPrice;
+  passengers.forEach((p) => {
+    passengerHTML += `
+      <li>
+        <b>${p.name}</b> — ${p.passport} (${p.nationality})<br>
+        <b>Fare:</b> ₱${flight.price.toLocaleString()}
+      </li>
+    `;
   });
   passengerHTML += "</ul>";
 
-  
+  // Flight summary
   let html = `
     <h3>Flight Summary</h3>
     <p><b>Flight:</b> ${flight.flightNo} — ${flight.from} → ${flight.to}</p>
@@ -329,27 +308,22 @@ function initSuccess() {
     html += `<p><b>Return:</b> ${flight.returnDate} (${flight.returnTime})</p>`;
   }
 
- 
+  // Passenger info + total
   html += `
     <hr><h3>Passengers (${totalPassengers})</h3>
     ${passengerHTML}
     <hr>
-    <p><b>Total Discount:</b> ₱${totalDiscount.toLocaleString()}</p>
     <p><b>Grand Total:</b> ₱${totalPrice.toLocaleString()}</p>
   `;
 
-  
-  if (!applyDiscount) {
-    html += `<p style="color:#b42b2b"><i>No Discount</i></p>`;
-  }
-
   content.innerHTML = html;
 
-
+  // Book now → confirmation + redirect
   bookBtn.addEventListener("click", () => {
     alert("✅ Booking Successful! Thank you for flying with Cebu Pacific Airlines.");
     localStorage.clear();
     window.location.href = "home.html";
   });
 }
+
 
